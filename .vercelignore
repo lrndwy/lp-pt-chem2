@@ -1,0 +1,38 @@
+# Development files
+.git
+.gitignore
+.env.local
+.env.*.local
+.DS_Store
+
+# Documentation
+README.md
+agents.md
+data.md
+
+# Testing
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+
+# Build outputs
+.next
+out
+dist
+
+# Dependencies
+node_modules
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
