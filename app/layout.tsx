@@ -18,13 +18,17 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ptchemenergysemesta.co.id"),
-  title: "PT Chem Energy Semesta | Solusi Lingkungan dan Migas",
+  title: "PT Chem Energy Semesta | Process Safety, Environmental, Retail, Training",
   description:
-    "PT Chem Energy Semesta menyediakan konsultasi PROPER, HAZOP Study Indonesia, dan distributor gas detector untuk sektor industri.",
+    "PT Chem Energy Semesta menyediakan process safety and engineering, environmental consulting, equipment and retail, serta training untuk sektor industri.",
   keywords: [
+    "Process Safety and Engineering",
     "Konsultasi PROPER",
     "HAZOP Study Indonesia",
     "Distributor Gas Detector",
+    "Environmental Consulting",
+    "Training",
+    "Honeywell",
     "PT Chem Energy Semesta"
   ],
   alternates: {
@@ -34,9 +38,9 @@ export const metadata: Metadata = {
     type: "website",
     url: "/",
     siteName: "PT Chem Energy Semesta",
-    title: "PT Chem Energy Semesta | Solusi Lingkungan dan Migas",
+    title: "PT Chem Energy Semesta | Process Safety, Environmental, Retail, Training",
     description:
-      "Layanan Konsultasi PROPER, HAZOP Study Indonesia, dan distributor gas detector untuk kebutuhan industri.",
+      "Layanan process safety and engineering, environmental consulting, equipment and retail, serta training untuk kebutuhan industri.",
     locale: "id_ID",
     images: [
       {

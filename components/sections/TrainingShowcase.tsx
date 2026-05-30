@@ -42,8 +42,8 @@ export function TrainingShowcase() {
             <h3 className="mt-1 text-[1.03rem] font-semibold leading-7 text-chem-slate">{group.title}</h3>
             <ul className="mt-4 space-y-2">
               {group.items.map((item) => (
-                <li key={item} className="flex items-start gap-2 text-sm leading-6 text-chem-slate/78">
-                  <span className="mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-chem-green" />
+                <li key={item} className="flex items-center justify-start gap-2 text-sm leading-6 text-chem-slate/78">
+                  <span className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-chem-green" />
                   <span>{item}</span>
                 </li>
               ))}

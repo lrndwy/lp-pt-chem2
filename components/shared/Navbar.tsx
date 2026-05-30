@@ -4,19 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { businessDivisions } from "@/constants/business-divisions";
 
 const navItems = [
-  { label: "Tentang", href: "/about" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
   {
-    label: "Layanan",
+    label: "Service",
     href: "/services",
-    children: [
-      { label: "Training", href: "/training" },
-      { label: "Environment", href: "/services#environment" },
-      { label: "Safety Solution & Risk Management", href: "/services#safety" }
-    ]
+    children: businessDivisions.map((division) => ({
+      label: `${division.label}`,
+      href: division.href
+    }))
   },
-  { label: "Retail", href: "/retail" }
+  { label: "Contact Us", href: "/contact" }
 ] as const;
 
 export function Navbar() {
@@ -121,13 +122,6 @@ export function Navbar() {
                     )}
                     role="menu"
                   >
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsServicesOpen(false)}
-                      className="mb-2 block rounded-xl bg-chem-blue/5 px-3 py-2 text-sm font-semibold text-chem-blue transition-colors hover:bg-chem-blue/10"
-                    >
-                      Semua Layanan
-                    </Link>
                     <div className="flex flex-col gap-1">
                       {(item as any).children.map((c: any) => (
                         <Link
@@ -222,13 +216,6 @@ export function Navbar() {
                   </button>
 
                   <div className={cn("ml-3 mt-1 flex flex-col overflow-hidden transition-all duration-200", isServicesOpen ? "max-h-64" : "max-h-0") }>
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="rounded-xl px-3 py-2 text-sm font-medium text-chem-slate/70 transition-colors hover:bg-chem-blue/5 hover:text-chem-blue"
-                    >
-                      Semua Layanan
-                    </Link>
                     {(item as any).children.map((c: any) => (
                       <Link
                         key={c.href}

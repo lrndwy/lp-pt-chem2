@@ -1,15 +1,15 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { services } from "@/constants/services";
+import { businessDivisions } from "@/constants/business-divisions";
 
 export function ServiceGrid() {
   const reducedMotion = useReducedMotion();
 
   return (
     <motion.section
-      id="services-overview"
+      id="business-divisions"
       initial={reducedMotion ? { opacity: 1 } : { opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -17,80 +17,63 @@ export function ServiceGrid() {
       className="mx-auto w-full max-w-6xl px-5 py-14 md:py-16"
     >
       <div className="mb-8 grid items-end gap-6 lg:grid-cols-12">
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-8">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-chem-green sm:text-sm">
-            Our Services
+            Business Divisions
           </p>
           <h2 className="mt-3 max-w-3xl text-[1.9rem] font-semibold text-chem-slate sm:text-4xl">
-            Konsultasi strategis untuk lingkungan, K3, dan operasi industri berisiko tinggi
+            Empat divisi bisnis utama dengan ruang lingkup yang jelas dan terfokus
           </h2>
           <p className="mt-4 max-w-2xl text-[0.95rem] leading-7 text-chem-slate/72">
-            Seluruh layanan dirancang untuk meningkatkan kepatuhan, keamanan proses, serta
-            efisiensi operasional dengan pendekatan data dan standar nasional.
+            Ringkasan ini menampilkan struktur layanan secara singkat. Detail lengkap tersedia di
+            halaman masing-masing divisi agar navigasi lebih cepat dan fokus.
           </p>
         </div>
 
-        <div className="lg:col-span-5 lg:justify-self-end">
+        <div className="lg:col-span-4 lg:justify-self-end">
           <div className="inline-flex items-center rounded-full border border-chem-blue/18 bg-chem-blue/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-chem-blue">
-            Data-Driven Industrial Advisory
+            Detail ada di tiap halaman
           </div>
         </div>
       </div>
 
-      <div className="mb-8 grid gap-3 md:grid-cols-12">
-        <div className="relative h-[280px] overflow-hidden md:col-span-7 md:h-[360px]">
-          <Image
-            src="/assets/services/service-1.jpg"
-            alt="Kegiatan konsultasi layanan PT Chem Energy Semesta"
-            fill
-            className="object-cover"
-            sizes="(min-width: 768px) 58vw, 100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0b1625]/18 via-transparent to-transparent" />
-        </div>
-
-        <div className="relative h-[280px] overflow-hidden md:col-span-5 md:h-[360px]">
-          <Image
-            src="/assets/services/service-2.jpg"
-            alt="Aktivitas tim layanan lapangan dan analisis risiko"
-            fill
-            className="object-cover"
-            sizes="(min-width: 768px) 42vw, 100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0b1625]/14 via-transparent to-transparent" />
-        </div>
-      </div>
-
-      <div className="divide-y divide-chem-blue/12 border-y border-chem-blue/12">
-        {services.map((service) => (
+      <div className="grid gap-4 md:grid-cols-2">
+        {businessDivisions.map((division) => (
           <motion.article
-            key={service.slug}
-            whileHover={reducedMotion ? undefined : { x: 3 }}
+            key={division.key}
+            whileHover={reducedMotion ? undefined : { y: -3 }}
             whileTap={reducedMotion ? undefined : { scale: 0.995 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="grid gap-4 py-6 sm:gap-5 md:grid-cols-12"
+            className="rounded-3xl border border-chem-blue/10 bg-white/95 p-6 shadow-sm"
           >
-            <div className="md:col-span-7">
-              <p className="mb-2 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-chem-green">
-                {service.highlight}
+            <div className="flex items-start justify-between gap-4">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-chem-green">
+                {division.eyebrow}
               </p>
-              <h3 className="text-[1.34rem] font-semibold text-chem-slate">{service.title}</h3>
-              <p className="mt-2 text-[0.95rem] leading-7 text-chem-slate/75">{service.description}</p>
+              <span className="rounded-full border border-chem-blue/15 bg-chem-blue/5 px-3 py-1 text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-chem-blue">
+                {division.partner}
+              </span>
             </div>
 
-            <div className="md:col-span-5">
-              <ul className="space-y-2">
-                {service.points.map((point) => (
-                  <li key={point} className="flex items-start gap-2 text-sm text-chem-slate/80">
-                    <span className="mt-1 inline-block h-2 w-2 shrink-0 rounded-full bg-chem-blue" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
+            <h3 className="mt-3 text-[1.18rem] font-semibold text-chem-slate">{division.label}</h3>
+            <p className="mt-3 text-[0.95rem] leading-7 text-chem-slate/75">{division.summary}</p>
 
-              <div className="mt-4 inline-flex text-xs font-medium uppercase tracking-[0.08em] text-chem-blue/80">
-                {service.badge}
-              </div>
+            <ul className="mt-5 space-y-2">
+              {division.points.map((point) => (
+                <li key={point} className="flex items-start gap-2 text-sm text-chem-slate/80">
+                  <span className="mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-chem-blue" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-6">
+              <Link
+                href={division.href}
+                className="inline-flex items-center rounded-full bg-chem-blue px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+              >
+                Lihat detail
+              </Link>
             </div>
           </motion.article>
         ))}
